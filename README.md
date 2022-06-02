@@ -1,10 +1,17 @@
-<h1 align="left">
-<span> &nbsp;&nbsp;&nbsp; </span>
-<img height="100" src="https://user-images.githubusercontent.com/20145075/127218526-44b107db-92b9-4a47-86a3-132b4c1e45d1.png" alt="OneDark.nvim">
-</h1>
+# chandrian-theme.nvim
 
-<h4><div align="right">
+The [VSCode's Chandrian theme by narenranjit](https://github.com/narenranjit/chandrian-theme), ported to nvim based on the semantically-aware code from [navarasu's OneDark theme](https://github.com/navarasu/onedark.nvim/).
+
+It uses the Chandrian theme colors when the language can be semantically parsed through [treesitter](https://github.com/nvim-treesitter/nvim-treesitter), and uses OneDark as a fallback (and also for other file types, like markdown).
+
+Requires neovim >= 0.5.
+
+**WHY**: The Chandrian colorscheme colors your control-flow statements (if, for, return) in **warm** colors, and everything else in **cool** colors, making your program's flow identifiable through a single glance.
+
+<h4><div align="center">
     <a href="#installation">Installation</a>
+    <span> | </span>
+    <a href="#screenshots">Screenshots</a>
     <span> | </span>
     <a href="#default-configuration">Configuration</a>
     <span> | </span>
@@ -12,41 +19,23 @@
     <span> &nbsp;&nbsp;&nbsp; &nbsp; </span>
 </div></h4>
 
-**Dark** and **Light** Themes for neovim >= 0.5 based on [Atom One Dark](https://github.com/atom/atom/tree/master/packages/one-dark-ui) & [Atom One Light](https://github.com/atom/atom/tree/master/packages/one-light-ui) theme written in lua with [TreeSitter](https://github.com/nvim-treesitter/nvim-treesitter) syntax highlight.
-
-*For Vim / Neovim < 0.5, prefer [joshdick/onedark.vim](https://github.com/joshdick/onedark.vim)*
-
-### Features
-  * 8 theme styles (One Dark + 5 variants) and (One Light + 1 variant)
-  * Supporting multiple plugins with hand picked proper colors
-  * Customize `Colors`, `Highlights` and `Code style` of the theme as you like (Refer [Customization](#customization))
-  * Toggle the theme style without exiting Neovim using shortcut `<leader>ts` (Refer [Default Config](#default-configuration))
-
-## Themes
-<p float="left">
-<img width="412" alt="Onedark - dark" src="https://user-images.githubusercontent.com/20145075/144289835-cbbbcb22-4eae-41f1-a5a3-e1800a37ae41.png">
-<img width="412" alt="Onedark - darker" src="https://user-images.githubusercontent.com/20145075/144293945-ee3b7dca-b119-4709-96d3-50391c7b8aba.png">
-</div></p>
-<p float="left">
-<img width="412" alt="Onedark - cool" src="https://user-images.githubusercontent.com/20145075/144298826-5c51eb3a-5529-4fe7-bce2-56508eda93d7.png">
-<img width="412" alt="Onedark - deep" src="https://user-images.githubusercontent.com/20145075/144299487-a7e886c7-2cc9-4d85-9aac-8517170432fc.png">
-</div></p>
-<p float="left">
-<img width="412" alt="Onedark - warm" src="https://user-images.githubusercontent.com/20145075/144304677-abbf6cc1-4adc-48b4-b675-6f6a5a98b426.png">
-<img width="412" alt="Onedark - warmer" src="https://user-images.githubusercontent.com/20145075/144304700-1e333a12-6994-4fb2-9053-1e7f294d41a6.png">
-</div></p>
 
 ## Installation
 Install via your favourite package manager
 ```vim
 " Using Vim-Plug
-Plug 'navarasu/onedark.nvim'
+Plug 'yogeshdhamija/chandrian-theme.nvim'
 ```
 
 ```lua
 -- Using Packer
-use 'navarasu/onedark.nvim'
+use 'yogeshdhamija/chandrian-theme.nvim'
 ```
+
+## Screenshots
+<img width="891" alt="Screen Shot 2022-06-03 at 3 30 20 PM" src="https://user-images.githubusercontent.com/4468354/171947772-5cb49de8-b9d5-449f-9277-e3b113faf05c.png">
+<img width="889" alt="Screen Shot 2022-06-03 at 3 26 57 PM" src="https://user-images.githubusercontent.com/4468354/171947207-611fb157-0b8a-4876-9822-5c5f2ca918ae.png">
+<img width="861" alt="Screen Shot 2022-06-03 at 3 27 32 PM" src="https://user-images.githubusercontent.com/4468354/171947288-1775d589-4c5d-4682-85f0-888b733fdd3b.png">
 
 ## Configuration
 
@@ -54,48 +43,28 @@ use 'navarasu/onedark.nvim'
 
 ```lua
 -- Lua
-require('onedark').load()
+require('chandrian').load()
 ```
 
 ```vim
 " Vim
-colorscheme onedark
+colorscheme chandrian
 ```
-
-### Change default style
-
-```lua
--- Lua
-require('onedark').setup {
-    style = 'darker'
-}
-require('onedark').load()
-```
-
-```vim
-" Vim
-let g:onedark_config = {
-    \ 'style': 'darker',
-\}
-colorscheme onedark
-```
-
-> **Options:**  dark, darker, cool, deep, warm, warmer, light
 
 ## Default Configuration
 
 ```lua
 -- Lua
-require('onedark').setup  {
+require('chandrian').setup  {
     -- Main options --
-    style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    style = 'dark', -- Currently the only option, and the default
     transparent = false,  -- Show/hide background
     term_colors = true, -- Change terminal color as per the selected theme style
     ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
     cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
     -- toggle theme style ---
     toggle_style_key = '<leader>ts', -- Default keybinding to toggle
-    toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+    toggle_style_list = {'dark'}, -- Currently the only option
 
     -- Change code style ---
     -- Options are italic, bold, underline, none
@@ -114,7 +83,7 @@ require('onedark').setup  {
 
     -- Plugins Config --
     diagnostics = {
-        darker = true, -- darker colors for diagnostic
+        darker = false, -- darker colors for diagnostic
         undercurl = true,   -- use undercurl instead of underline for diagnostics
         background = true,    -- use background color for virtual text
     },
@@ -123,13 +92,13 @@ require('onedark').setup  {
 
 ### Vimscript configuration
 
-Onedark can be configured also with Vimscript, using the global dictionary `g:onedark_config`.
+Chandrian can be configured also with Vimscript, using the global dictionary `g:chandrian_config`.
 **NOTE**: when setting boolean values use `v:true` and `v:false` instead of 0 and 1
 
 Example:
 ``` vim
-let g:onedark_config = {
-  \ 'style': 'deep',
+let g:chandrian_config = {
+  \ 'style': 'dark',
   \ 'toggle_style_key': '<leader>ts',
   \ 'ending_tildes': v:true,
   \ 'diagnostics': {
@@ -137,7 +106,7 @@ let g:onedark_config = {
     \ 'background': v:false,
   \ },
 \ }
-colorscheme onedark
+colorscheme chandrian
 ```
 
 ## Customization
@@ -145,7 +114,7 @@ colorscheme onedark
 Example custom colors and Highlights config
 
 ```lua
-require('onedark').setup {
+require('chandrian').setup {
   colors = {
     bright_orange = "#ff8800",    -- define a new color
     green = '#00ffaa',            -- redefine an existing color
@@ -161,12 +130,13 @@ require('onedark').setup {
 ## Plugins Configuration
 
 ### Enable lualine
-To Enable the `onedark` theme for `Lualine`, specify theme as `onedark`:
+To Enable the `
+` theme for `Lualine`, specify theme as `chandrian`:
 
 ```lua
 require('lualine').setup {
   options = {
-    theme = 'onedark'
+    theme = 'chandrian'
     -- ... your lualine config
   }
 }
@@ -185,10 +155,6 @@ require('lualine').setup {
   + [VimFugitive](https://github.com/tpope/vim-fugitive)
   + [DiffView](https://github.com/sindrets/diffview.nvim)
   + [Hop](https://github.com/phaazon/hop.nvim)
-
-## Reference
-* [tokyodark.nvim](https://github.com/tiagovla/tokyodark.nvim)
-* [one-dark-theme](https://github.com/andresmichel/one-dark-theme)
 
 ## Contributing
 
