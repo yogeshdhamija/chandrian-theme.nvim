@@ -66,7 +66,7 @@ local default_config = {
 
     -- Plugins Related --
     diagnostics = {
-        darker = true, -- darker colors for diagnostic
+        darker = false, -- darker colors for diagnostic
         undercurl = true,   -- use undercurl for diagnostics
         background = true,    -- use background color for virtual text
     },
