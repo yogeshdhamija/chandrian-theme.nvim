@@ -1,6 +1,6 @@
 local M = {}
 
-M.styles_list = { 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light' }
+M.styles_list = { 'dark' }
 
 ---Change chandrian option (vim.g.chandrian_config.option)
 ---It can't be changed directly by modifing that field due to a Neovim lua bug with global variables (chandrian_config is a global variable)
@@ -19,7 +19,7 @@ function M.colorscheme()
     vim.o.termguicolors = true
     vim.g.colors_name = "chandrian"
     if vim.o.background == 'light' then
-        M.set_options('style', 'light')
+        -- M.set_options('style', 'light')
     elseif vim.g.chandrian_config.style == 'light' then
         M.set_options('style', 'dark')
     end
@@ -43,7 +43,7 @@ end
 
 local default_config = {
     -- Main options --
-    style = 'dark',    -- choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    style = 'dark',
     toggle_style_key = '<leader>ts',
     toggle_style_list = M.styles_list,
     transparent = false,     -- don't set background
