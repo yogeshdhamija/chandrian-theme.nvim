@@ -1,4 +1,4 @@
-local c = require('onedark.colors')
+local c = require('chandrian.colors')
 local colors = {
     bg = c.bg0,
     fg = c.fg,
@@ -11,7 +11,7 @@ local colors = {
     gray = c.grey
 }
 
-local one_dark = {
+local chandrian_colors = {
     inactive = {
         a = {fg = colors.gray, bg = colors.bg, gui = 'bold'},
         b = {fg = colors.gray, bg = colors.bg},
@@ -27,4 +27,4 @@ local one_dark = {
     insert = {a = {fg = colors.bg, bg = colors.blue, gui = 'bold'}},
     command = {a = {fg = colors.bg, bg = colors.yellow, gui = 'bold'}}
 }
-return one_dark;
+return chandrian_colors;
